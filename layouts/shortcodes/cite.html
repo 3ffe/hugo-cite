@@ -96,7 +96,9 @@
 {{- end }}
 
 {{- if gt (len $bibliographyPath) 0 -}}{{/* Begin Bibliography Loop */}}
-{{- $bibliography := getJSON $bibliographyPath -}}
+{{/*  {{- $bibliography := getJSON $bibliographyPath -}}  */}}
+{{ $file := resources.Get $bibliographyPath }}
+{{ $bibliography := transform.Unmarshal $file }}
 {{- /* -------------------- END Bibliography path -------------------- */ -}}
 
   <span class="hugo-cite-intext"

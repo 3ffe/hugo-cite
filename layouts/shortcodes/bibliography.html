@@ -92,7 +92,9 @@
   {{- $bibliographyPath = $constructedBibResource }}
   {{- end }}
 
-  {{- $references = getJSON $bibliographyPath }}
+  {{/*  {{- $references = getJSON $bibliographyPath }}  */}}
+  {{ $file := resources.Get $bibliographyPath }}
+  {{ $references := transform.Unmarshal $file }}
 
 {{- end }}
 

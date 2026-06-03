@@ -35,7 +35,6 @@
 
 {{ if $references }}
 <section class="hugo-cite-bibliography">
-  <dl>
     {{/* -------------------- BEGIN RANGE BIBLIOGRAPHY -------------------- */}}
     {{- range $refIndex, $refObject := $references -}}
       {{- $currentRef := index $references $refIndex }}
@@ -43,42 +42,6 @@
       {{- $partialPath := string (printf "bibliography/%s-style.html" $citationStyle) }}
 
       <div id="{{ $currentRef.id | urlize }}">
-        <dt>
-          {{/* 
-            Author-date in-text citation
-          */}}
-
-          {{- $displayAuthors := $currentRef.author -}}
-          {{- if not $currentRef.author -}}
-          {{- $displayAuthors = $currentRef.editor -}}
-          {{- end -}}
-          {{- if not $displayAuthors -}}{{/* Fallback if no authors/Eds are specified */}}
-          ({{- i18n "apa_no_author_abbr" | default "n.a." | upper -}})
-          {{- else -}}
-
-          {{- $totalAuthors := len $displayAuthors -}}
-          {{- range $authorIndex, $author := $displayAuthors -}}{{/* BEGIN authors loop */}}
-
-          {{- with $author.family -}}
-          {{ . }}
-          {{- end }}
-          {{- if and (gt $totalAuthors 1) (lt (add $authorIndex 2) $totalAuthors) -}},&#32;
-          {{ end -}}
-          {{ if eq $totalAuthors (add $authorIndex 2) -}}&#32;&amp;&#32;{{ end -}}{{/* Last name has ampersand */}}
-          {{- end -}}
-
-          {{- end -}}{{/* END authors loop */}}
-
-          {{/* Begin Issued */}}
-          ({{- if and (isset $currentRef "issued") (isset .issued "date-parts") -}}
-          {{- range $index, $dateParts := (index $currentRef.issued "date-parts") -}}
-          {{- if gt $index 0 -}},&#32;{{ end -}}
-          {{- range first 1 $dateParts -}}{{- . -}}{{- end -}}
-          {{- end -}}
-          {{- else -}}{{/* Fallback if no date */}}
-          {{- i18n "apa_no_date_abbr" | default "n.d." -}}
-          {{- end -}}){{/* End Issued */}}</dt>
-
         <dd>
           {{/*
             Full bibliographic notice
@@ -89,7 +52,6 @@
       </div>
     {{- end -}}
     {{/* -------------------- END RANGE BIBLIOGRAPHY -------------------- */}}
-  </dl>
 </section>
 {{- else }}
 {{ printf "Bibliography called, but no references" }}
