@@ -31,16 +31,6 @@
 
   {{< bibliography src="path/to/bib.json" cited="true" >}}
 
-
-  6. Bibliography file may be located at a URL, thanks to Hugo’s
-     `getJSON` function.
-     *Note however that this method may have some drawbacks if you are reloading
-     often, see the Hugo docs regarding potential issues:*
-     https://gohugo.io/templates/data-templates/#livereload-with-data-files
-
-  {{< bibliography "https://example.com/my/bib.json" >}}
-
-
   The first positional param points to the bibliography file.
   It is optional if you have a `bib.json` in a page leaf bundle.
   It must be relative to the root of the Hugo project.
@@ -92,7 +82,6 @@
   {{- $bibliographyPath = $constructedBibResource }}
   {{- end }}
 
-  {{/*  {{- $references = getJSON $bibliographyPath }}  */}}
   {{ $file := resources.Get $bibliographyPath }}
   {{ $references := transform.Unmarshal $file }}
 

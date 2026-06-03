@@ -158,9 +158,6 @@ You can chose to use **named params** for clarity (the order does not matter her
 
 #### File From a URL
 
-Thanks to Hugo’s [`getJSON`](https://gohugo.io/templates/data-templates/#data-driven-content) function, the path can also be a **URL**.  
-*Note however that this method may have some drawbacks if you are [reloading often](https://gohugo.io/templates/data-templates/#livereload-with-data-files), see the Hugo docs regarding potential issues.*
-
 ```markdown
 <!-- Markdown -->
 

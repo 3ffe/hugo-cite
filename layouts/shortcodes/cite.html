@@ -96,7 +96,7 @@
 {{- end }}
 
 {{- if gt (len $bibliographyPath) 0 -}}{{/* Begin Bibliography Loop */}}
-{{/*  {{- $bibliography := getJSON $bibliographyPath -}}  */}}
+
 {{ $file := resources.Get $bibliographyPath }}
 {{ $bibliography := transform.Unmarshal $file }}
 {{- /* -------------------- END Bibliography path -------------------- */ -}}
