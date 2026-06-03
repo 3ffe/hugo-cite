@@ -4,7 +4,7 @@ This is a fork of hugo-cite from [loup-brun/hugo-cite](https://github.com/loup-b
 
 1. Replaced deprecated `echoParam` with `index .Params`.
 2. Replaced deprecated `getJSON` with `resources.Get` and `transform.Unmarshal`.
-3. Deleted the code block enclosed in `<dt>` in `themes/hugo-cite/layouts/partials/bibliography-list.html`, for removing the citation key in front of each entry in bibliography list. Also deleted the `<dl>` tag for correcting line break issues.
+3. Deleted the code block enclosed in `<dt>` in `themes/hugo-cite/layouts/partials/bibliography-list.html`, for removing the citation key in front of each entry in bibliography list, added numerical counter in `[n]` format.
 
 ## How to use 
 1. Install the theme with git submodule
