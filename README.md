@@ -2,7 +2,7 @@
 
 This is a fork of hugo-cite from [loup-brun/hugo-cite](https://github.com/loup-brun/hugo-cite). While the original repo seems to be no longer maintained, this fork works well with the latest hugo version (0.16). Changes made:
 
-1. Replaced deprecated `echoParam` with `index .Params`.
+1. Replaced deprecated `echoParam` with `index`.
 2. Replaced deprecated `getJSON` with `resources.Get` and `transform.Unmarshal`.
 3. Replaced citation key in front of each entry in bibliography list defined in `themes/hugo-cite/layouts/partials/bibliography-list.html` with `[n]` format numerical counter.
 
