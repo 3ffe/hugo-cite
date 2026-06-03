@@ -36,19 +36,14 @@
 {{ if $references }}
 <section class="hugo-cite-bibliography">
     {{/* -------------------- BEGIN RANGE BIBLIOGRAPHY -------------------- */}}
+    {{- $counter := 0 -}}
     {{- range $refIndex, $refObject := $references -}}
+    {{- $counter = add $counter 1 -}}
       {{- $currentRef := index $references $refIndex }}
-
       {{- $partialPath := string (printf "bibliography/%s-style.html" $citationStyle) }}
-
       <div id="{{ $currentRef.id | urlize }}">
-        <dd>
-          {{/*
-            Full bibliographic notice
-          */}}
-
-          {{- partial $partialPath $currentRef -}}</dd>
-
+        [{{ $counter }}]
+        {{- partial $partialPath $currentRef -}}
       </div>
     {{- end -}}
     {{/* -------------------- END RANGE BIBLIOGRAPHY -------------------- */}}
